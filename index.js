@@ -10,7 +10,7 @@ import cookieParser from "cookie-parser";
 import logReqRes from "./src/middlewares/middleware.js";
 import { connectMongoDb, connectSocketIO } from "./src/connection/connection.js";
 import { router } from "./src/routes/V1/route.js";
-import { HttpStatusCode } from "axios";
+import './src/config/env.js';
 
 const app = express();
 const server = http.createServer(app);
