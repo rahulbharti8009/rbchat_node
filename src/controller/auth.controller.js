@@ -13,8 +13,9 @@ export async function login(req, res) {
       value: user,
     });
   }
+  //   const users = await User.create({ mobile: mobile , color:randomColor()});
 
-  const users = await User.create({ mobile: mobile , color:randomColor()});
+  const users = await User.create({ mobile: mobile , color:'#DD9C0F'});
 
   return res.status(HttpStatusCode.Ok).json({
     status: true,

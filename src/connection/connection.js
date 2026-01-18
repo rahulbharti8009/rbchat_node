@@ -13,7 +13,7 @@ export async function connectMongoDb(params) {
   mongoose
     .connect(params)
     .then(async () => {
-      console.log("Server is connected");
+      console.log("database is connected");
       // Create uploads folder if not present
       if (!fs.existsSync("uploads")) {
         fs.mkdirSync("uploads");

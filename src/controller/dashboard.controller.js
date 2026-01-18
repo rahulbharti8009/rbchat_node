@@ -137,8 +137,8 @@ export async function readMsg(req, io, socket) {
       {
         $set: {
           "chat.$.count": 0,
-          "chat.$.time": "",
-          "chat.$.date": "",
+          "chat.$.time": new Date().toLocaleTimeString(),
+          "chat.$.date": new Date().toLocaleDateString(),
           "chat.$.timestamp": Date.now(),
         },
       }
@@ -249,4 +249,32 @@ export async function chatHistory(req, res) {
       message: error.message,
     });
 }
+}
+
+
+export async function updateProfile(req, res) {
+  try {
+    const { mobile, color, name } = req.body;
+    const result = await User.updateOne(
+      {
+        mobile: mobile,
+      },
+      {
+        $set: {
+          "color": color,
+          "name":name
+        },
+      }
+    );
+    const user = await User.findOne({mobile:mobile});
+
+    return res.status(HttpStatusCode.Ok).json({
+      status: true,
+      message: "Profile updated successfully",
+      value : user
+    });   
+
+  } catch (error) {
+    console.error("readMsg error:", error);
+  }
 }

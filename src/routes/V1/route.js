@@ -1,6 +1,6 @@
 import express from 'express'
 import { login, users } from '../../controller/auth.controller.js';
-import { invite_list, chat_list, inviteUser, acceptUser, rejectUser, saveChatMesg, chatHistory } from '../../controller/dashboard.controller.js';
+import { invite_list, chat_list, inviteUser, acceptUser, rejectUser, saveChatMesg, chatHistory, updateProfile } from '../../controller/dashboard.controller.js';
 
 export const router = express.Router(); 
 
@@ -13,6 +13,8 @@ router.post('/accept_user',acceptUser)
 router.post('/reject_user',rejectUser)
 router.post('/save_chat_msg',saveChatMesg)
 router.post('/chat/history',chatHistory)
+router.post('/update_profile',updateProfile)
+
 
 
 
