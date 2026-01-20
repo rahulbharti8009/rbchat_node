@@ -9,7 +9,6 @@ export async function chat_list(req, res) {
   const { mobile} = req.body;
 
   const user = await User.findOne({ mobile: mobile });
-  // console.log("chat list ",user)
   return res.status(HttpStatusCode.Ok).json({
     status: true,
     message: "success",

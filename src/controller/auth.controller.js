@@ -3,7 +3,7 @@ import { User } from "../model/user.model.js";
 import { randomColor } from "../utils/common.js";
 
 export async function login(req, res) {
-  const { mobile } = req.body;
+  const { mobile , name} = req.body;
 
   const user = await User.findOne({ mobile: mobile });
   if (user) {
@@ -15,7 +15,7 @@ export async function login(req, res) {
   }
   //   const users = await User.create({ mobile: mobile , color:randomColor()});
 
-  const users = await User.create({ mobile: mobile , color:'#DD9C0F'});
+  const users = await User.create({ mobile: mobile , color:'#DD9C0F', name: name});
 
   return res.status(HttpStatusCode.Ok).json({
     status: true,
